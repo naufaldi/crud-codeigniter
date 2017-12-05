@@ -60,12 +60,19 @@ class Logistik extends CI_Controller
     }
     public function update_data()
     {
-        $no_barang = $_POST['ni'];
-        $nama_barang = $_POST['nama'];
-        $jenis_barang = $_POST['alamat'];
+        $no_barang = $_POST['no_barang'];
+        $nama_barang = $_POST['nama_barang'];
+        $jenis_barang = $_POST['jenis_barang'];
+        $tanggal_barang = $_POST['tanggal_barang'];
+        $keterangan = $_POST['keterangan'];
+        $jumlah = $_POST['jumlah'];
         $data = array(
-            'nama' => $nama,
-            'alamat' => $alamat
+            'nama_barang' => $nama_barang,
+            'nama_barang' => $nama_barang,
+            'jenis_barang' => $jenis_barang,
+            'tanggal_barang' => $tanggal_barang,
+            'keterangan' => $keterangan,
+            'jumlah' => $jumlah
         );
         $where = array(
             'no_barang' => $no_barang,
@@ -73,7 +80,7 @@ class Logistik extends CI_Controller
         $this->load->model('mymodel');
         $res = $this->mymodel->Update('logistik', $data, $where);
         if ($res>0) {
-            redirect('helloworld/index','refresh');
+            redirect('logistik/index','refresh');
         }
     }
 

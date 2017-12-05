@@ -33,24 +33,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <img alt="image" class="img-circle" src="<?php  echo base_url('assets/img/profile_small.jpg')?>" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="mailbox.html">Mailbox</a></li>
-                            <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
-                        </ul>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Naufaldi Rafif</strong>
+                             </span> <span class="text-muted text-xs block">Admin Logistik </span> </span> </a>
                     </div>
                     <div class="logo-element">
                         IN+
                     </div>
                 </li>
 
-                <li>
-                    <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
+                <li class="active">
+                    <a href="<?php echo base_url()."index.php/logistik/";?>"><i class="fa fa-diamond"></i> <span class="nav-label">List Data</span></a>
                 </li>
+                <li>
+                    <a href="<?php echo base_url()."index.php/logistik/add_data";?>"><i class="fa fa-diamond"></i> <span class="nav-label">Tambah Data</span></a>
+                </li>
+
             </ul>
 
         </div>
@@ -82,16 +79,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Data Tables</h2>
+                    <h2>Data Logistik</h2>
                     <ol class="breadcrumb">
                         <li>
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            <a>Tables</a>
+                            <a>Data</a>
                         </li>
                         <li class="active">
-                            <strong>Data Tables</strong>
+                            <strong>List Data</strong>
                         </li>
                     </ol>
                 </div>
@@ -104,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Basic Data Tables example with responsive plugin</h5>
+                        <h5>Data Logistik Barang </h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -130,21 +127,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <thead>
                     <tr>
                         <th>No</th>
+                        <th>No Barang</th>
                         <th>Nama Barang</th>
                         <th>Jenis Barang</th>
-                        <th>Tanggal Barang</th>
+                        <th>Tanggal Masuk</th>
                         <th>Keterangan</th>
                         <th>Jumlah</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($data as $mahasiswa) { ?>
+                    <?php
+                    $no = 1;
+                    foreach ($data as $logistik) { ?>
                         <tr>
-                            <td><?php echo $mahasiswa['no_induk']; ?> </td>
-                            <td><?php echo $mahasiswa['nama']; ?></td> 
-                            <td> <?php echo $mahasiswa['alamat']; ?> </td>
-                            <td> <a href="<?php echo base_url()."index.php/helloworld/edit_data/".$mahasiswa['no_induk']; ?>">Edit </td>
-                            <td> <a href="<?php echo base_url()."index.php/helloworld/delete_data/".$mahasiswa['no_induk']; ?>   ">Delete </td>
+                            <td><?php echo $no++ ;?></td>
+                            <td><?php echo $logistik['no_barang']; ?> </td>
+                            <td><?php echo $logistik['nama_barang']; ?></td> 
+                            <td> <?php echo $logistik['jenis_barang']; ?> </td>
+                            <td> <?php echo $logistik['tanggal_barang']; ?> </td>
+                            <td> <?php echo $logistik['keterangan']; ?> </td>
+                            <td> <?php echo $logistik['jumlah']; ?> </td>
+                            <td> 
+                            <a href="<?php echo base_url()."index.php/logistik/edit_data/".$logistik['no_barang']; ?>"><button class="btn btn-primary" >Edit</button></a>
+                            <a href="<?php echo base_url()."index.php/logistik/delete_data/".$logistik['no_barang']; ?>"><button class="btn btn-warning">Delete</button></a>
+                            </td>
+                            
                          </tr>
                       <?php } ?>
                 
@@ -189,21 +197,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 responsive: true,
                 dom: '<"html5buttons"B>lTfgitp',
                 buttons: [
-                    { extend: 'copy'},
-                    {extend: 'csv'},
-                    {extend: 'excel', title: 'ExampleFile'},
-                    {extend: 'pdf', title: 'ExampleFile'},
-
-                    {extend: 'print',
-                     customize: function (win){
-                            $(win.document.body).addClass('white-bg');
-                            $(win.document.body).css('font-size', '10px');
-
-                            $(win.document.body).find('table')
-                                    .addClass('compact')
-                                    .css('font-size', 'inherit');
-                    }
-                    }
+            
                 ]
 
             });
