@@ -13,6 +13,12 @@ class Mymodel extends CI_Model{
 
 		return $res; // Kode ini digunakan untuk mengembalikan hasil $res
 	}
+	public function GetWhere($table, $data)
+    {
+        $res = $this->db->get_where($table, $data);
+        return $res->result_array();
+    }
+
 	public function Update($table,$data,$where)
 	{
 		$res = $this->db->update($table,$data,$where);

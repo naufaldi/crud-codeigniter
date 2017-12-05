@@ -9,7 +9,7 @@
             <tr>
                 <td>Nomor Induk</td>
                 <td>:</td>
-                <td><input type="text" required="" name="ni" placeholder="Masukkan Nomor Induk.." value="&lt;?php echo $no_induk; ?&gt;" readonly="readonly"></td>            </tr>
+                <td><input type="text" name="ni" readonly=""  placeholder="Masukkan Nomor Induk.." value="<?php echo $no_induk; ?>"> </tr>
             <tr>
                 <td>Nama</td>
                 <td>:</td>

@@ -38,12 +38,6 @@ class Helloworld extends CI_Controller
         $this->mymodel->delete('mahasiswa', $noinduk);
         redirect(base_url(), 'refresh');
     }
-    public function GetWhere($table, $data)
-    {
-        $res = $this->db->get_where($table, $data);
-
-        return $res->result_array();
-    }
 
     public function edit_data($noinduk)
     {
@@ -58,22 +52,21 @@ class Helloworld extends CI_Controller
     }
     public function update_data()
     {
-        $no_induk = $POST('ni');
-        $nama == $_POST['nama'];
+        $no_induk = $_POST['ni'];
+        $nama = $_POST['nama'];
         $alamat = $_POST['alamat'];
         $data = array(
             'nama' => $nama,
-            'alamat' => $alamat,
-    
+            'alamat' => $alamat
         );
         $where = array(
             'no_induk' => $no_induk,
         );
         $this->load->model('mymodel');
-        $res = $this->model->Update('mahasiswa',$data,$where);
-        if($res>0){
+        $res = $this->mymodel->Update('mahasiswa', $data, $where);
+        if ($res>0) {
             redirect('helloworld/index','refresh');
         }
-}
+    }
 
 }
