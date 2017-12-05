@@ -42,10 +42,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
 
                 <li class="active">
-                    <a href="<?php echo base_url()."index.php/logistik/";?>"><i class="fa fa-diamond"></i> <span class="nav-label">List Data</span></a>
+                    <a href="<?php echo base_url()."index.php/logistik/";?>"><i class="fa fa-archive"></i> <span class="nav-label">List Data</span></a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url()."index.php/logistik/add_data";?>"><i class="fa fa-diamond"></i> <span class="nav-label">Tambah Data</span></a>
+                    <a href="<?php echo base_url()."index.php/logistik/add_data";?>"><i class="fa fa-pencil"></i> <span class="nav-label">Tambah Data</span></a>
                 </li>
 
             </ul>

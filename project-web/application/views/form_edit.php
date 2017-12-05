@@ -10,14 +10,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Data Logistic</title>
-
     <link href="<?php  echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?php  echo base_url('assets/font-awesome/css/font-awesome.css') ?>" rel="stylesheet">
-
     <link href="<?php  echo base_url('assets/css/plugins/dataTables/datatables.min.css') ?>" rel="stylesheet">
-
     <link href="<?php  echo base_url('assets/css/animate.css') ?>" rel="stylesheet">
     <link href="<?php  echo base_url('assets/css/style.css') ?>" rel="stylesheet">
+    <link href="<?php  echo base_url('assets/css/plugins/chosen/bootstrap-chosen.css') ?>" rel="stylesheet">
+    <link href="<?php  echo base_url('assets/css/plugins/datapicker/datepicker3.css') ?>" rel="stylesheet">
+    <link href="<?php  echo base_url('assets/css/plugins/daterangepicker/daterangepicker-bs3.css') ?>" rel="stylesheet">
 
 </head>
 
@@ -41,10 +41,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </li>
                 <li>
-                <a href="<?php echo base_url()."index.php/logistik/";?>"><i class="fa fa-diamond"></i> <span class="nav-label">List Data</span></a>
+                <a href="<?php echo base_url()."index.php/logistik/";?>"><i class="fa fa-archive"></i> <span class="nav-label">List Data</span></a>
                 </li>
                 <li  class="active">
-                    <a href="<?php echo base_url()."index.php/logistik/add_data";?>"><i class="fa fa-diamond"></i> <span class="nav-label">Tambah Data</span></a>
+                    <a href="<?php echo base_url()."index.php/logistik/add_data";?>"><i class="fa fa-pencil"></i> <span class="nav-label">Tambah Data</span></a>
                 </li>
             </ul>
 
@@ -132,12 +132,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Jenis Barang</label>
                             <div class="col-sm-5">
-                            <input type="text" class="form-control" name="jenis_barang" value="<?php echo $jenis_barang; ?>">
+                            <select name="jenis_barang" data-placeholder="Pilih Jenis Barang" class="chosen-select" tabindex="2">
+                                <option value=<?php echo $jenis_barang; ?>""><?php echo $jenis_barang; ?></option>
+                                <option value="">Select</option>
+                                <option value="Kemeja">Kemeja</option>
+                                <option value="Celana">Celana</option>
+                                <option value="Celana Dalam">Celana Dalam</option>
+                                <option value="Kaos">Kaos</option>
+                                <option value="Kaos Polo">Kaos Polo</option>
+                                <option value="Batik">Batik</option>
+                            </select>
                             </div>
                         </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">Tanggal Masuk</label>
+                        <div class="form-group" id="data_1"><label class="col-sm-2 control-label">Tanggal Masuk</label>
                             <div class="col-sm-5">
-                            <input type="text" class="form-control" name="tanggal_barang"  value="<?php echo $tanggal_barang; ?>">
+                                <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calender"></i></span>
+                                    <input type="text" class="form-control" name="tanggal_barang" value="<?php echo $tanggal_barang; ?>">
+                                </div>
+                           
                             </div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Keterangan</label>
@@ -147,7 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Jumlah</label>
                             <div class="col-sm-2">
-                            <input type="text" class="form-control" name="jumlah"  value="<?php echo $jumlah; ?>">
+                            <input type="number" class="form-control" name="jumlah"  value="<?php echo $jumlah; ?>">
                             </div>
                         </div>
                        <div class="form-group">
@@ -174,34 +187,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-    <!-- Mainly scripts -->
-    <script src="<?php  echo base_url('assets/js/jquery-3.1.1.min.js')?>"></script>
-    <script src="<?php  echo base_url('assets/js/bootstrap.min.js')?>"></script>
-    <script src="<?php  echo base_url('assets/js/plugins/metisMenu/jquery.metisMenu.js')?>"></script>
-    <script src="<?php  echo base_url('assets/"js/plugins/slimscroll/jquery.slimscroll.min.js')?>"></script>
+<!-- Mainly scripts -->
+<script src="<?php  echo base_url('assets/js/jquery-3.1.1.min.js')?>"></script>
+<script src="<?php  echo base_url('assets/js/bootstrap.min.js')?>"></script>
+<script src="<?php  echo base_url('assets/js/plugins/metisMenu/jquery.metisMenu.js')?>"></script>
+<script src="<?php  echo base_url('assets/js/plugins/slimscroll/jquery.slimscroll.min.js')?>"></script>
+<script src="<?php  echo base_url('assets/js/plugins/chosen/chosen.jquery.js')?>"></script>
+<script src="<?php  echo base_url('assets/js/plugins/dataTables/datatables.min.js')?>"></script>
 
-    <script src="<?php  echo base_url('assets/js/plugins/dataTables/datatables.min.js')?>"></script>
+   <!-- Data picker -->
+<script src="<?php  echo base_url('assets/js/plugins/datapicker/bootstrap-datepicker.js')?>"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="<?php  echo base_url('assets/js/inspinia.js')?>"></script>
-    <script src="<?php  echo base_url('assets/js/plugins/pace/pace.min.js')?>"></script>
+<!-- Date range picker -->
+<script src="<?php  echo base_url('assets/js/plugins/daterangepicker/daterangepicker.js')?>"></script>
+<!-- Custom and plugin javascript -->
+<script src="<?php  echo base_url('assets/js/inspinia.js')?>"></script>
+<script src="<?php  echo base_url('assets/js/plugins/pace/pace.min.js')?>"></script>
 
-    <!-- Page-Level Scripts -->
-    <script>
-        $(document).ready(function(){
-            $('.dataTables-example').DataTable({
-                pageLength: 25,
-                responsive: true,
-                dom: '<"html5buttons"B>lTfgitp',
-                buttons: [
-            
-                ]
-
-            });
+<!-- Page-Level Scripts -->
+<script>
+    $(document).ready(function(){
+        $('.dataTables-example').DataTable({
+            pageLength: 25,
+            responsive: true,
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [
+        
+            ]
 
         });
+        $('.chosen-select').chosen({width: "100%"});
+        $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
 
-    </script>
+
+    });
+
+</script>
+
 
 </body>
 
@@ -212,34 +240,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Form Edit</title>
-</head>
-<body>
-    <table>
-        <form method="post" action="<?php echo base_url()."index.php/helloworld/update_data"; ?>">
-            <tr>
-                <td>Nomor Induk</td>
-                <td>:</td>
-                <td><input type="text" name="ni" readonly=""  placeholder="Masukkan Nomor Induk.." value="<?php echo $no_induk; ?>"> </tr>
-            <tr>
-                <td>Nama</td>
-                <td>:</td>
-                <td><input type="text" required  name="nama" placeholder="Masukkan Nama Anda.." value="<?php echo $nama; ?>"></td>
-            </tr>
-            <tr>
-                <td>Alamat</td>
-                <td>:</td>
-                <td><textarea style="resize: none;" required  name="alamat"><?php echo $alamat; ?></textarea></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td><input type="submit" name="submit" value="Update"></td>
-            </tr>
-        </form>
-    </table>
-</body>
-</html>
