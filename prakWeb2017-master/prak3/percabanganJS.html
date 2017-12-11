@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Variabel JS</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var t=new Date()
+		var jam =t.getHours()
+		var menit=t.getMinutes()
+		var detik =t.getSeconds()
+		document.write("<b><center> Sekarang ini jam menunjukkan pukul:<h3>"+jam+":"+menit+":"+detik+"<br>")
+
+		if (jam==1 || jam<12)
+			alert("Selamat Pagi")
+		else if (jam==12 || jam<18)
+			alert("Selamat Siang")
+		else if (jam==18 || jam<20)
+			alert("Selamat Sore")
+		else
+			alert("Selamat malam")
+	
+	</script>
+</body>
+</html>

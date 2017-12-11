@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 
  	$(document).ready(function(){
  		$('.xedit').editable({
- 			url: '<?php echo base_url('ajaxcrud/ubah_mahasiswa') ?>'
+ 			url: '<?php echo base_url('index.php/ajaxcrud/ubah_mahasiswa') ?>'
  		});
 
  		$("#simpan").click(function(event){
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
  				event.preventDefault();
  				jQuery.ajax({
  					type: "POST",
- 					url: "<?php echo base_url('ajaxcrud/tambah_mahasiswa');?>",
+ 					url: "<?php echo base_url('index.php/ajaxcrud/tambah_mahasiswa');?>",
  					dataType: 'json',
  					data: {
  						nim2: $("#nim").val(),
@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
  							$("#nim").val();
  							$("#nama").val();
  							$('.xedit').editable({
- 								url: '<?php echo base_url('ajaxcrud/ubah_mahasiswa') ?>'
+ 								url: '<?php echo base_url('index.php/ajaxcrud/ubah_mahasiswa') ?>'
  							});
 
  						}catch(e){
@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
  		if (confirm('Apakah anda yakin ingin menghapus data ini ?')) {
  			jQuery.ajax({
  					type: "POST",
- 					url: "<?php echo base_url('ajaxcrud/hapus_mahasiswa')?>/"+id,
+ 					url: "<?php echo base_url('index.php/ajaxcrud/hapus_mahasiswa')?>/"+id,
  					dataType: 'json',
  					success: function(json){
  						try{
@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
  							$('#daftar_mahasiswa').html(json);
  							jQuery('#daftar_mahasiswa').show();
  							$('.xedit').editable({
- 								url: '<?php echo base_url('ajaxcrud/ubah_mahasiswa')?>'
+ 								url: '<?php echo base_url('index.php/ajaxcrud/ubah_mahasiswa')?>'
  							});
 
  						}catch(e){

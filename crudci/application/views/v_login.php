@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  				}
 
  			?>
- 			<?=form_open('login/cek_login','class="form-inline"')?>
+ 			<?=form_open('index.php/login/cek_login','class="form-inline"')?>
  			<input type="text" name="userid" class="input-small" placeholder="User ID" rel="tooltip" data-placement="top" title="Masukkan User ID Anda">
  			<input type="password" name="password" class="input-small" placeholder="password" rel="tooltip" placeholder="top" title="Masukkan password anda">
  			<button type="submit" name="login" class="btn btn-primary"><i class="icon icon-white"></i>Login</button>

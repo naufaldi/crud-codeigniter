@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  	<?php
  	if ((isset($page))and ($page == 'tambah_mahasiswa')) { ?>
  		<legend>Tambah mahasiswa</legend>
- 		<?php echo form_open('aplikasi/proses_tambah_mahasiswa', 'class="form-horizontal"')?>
+ 		<?php echo form_open('index.php/aplikasi/proses_tambah_mahasiswa', 'class="form-horizontal"')?>
  		<table>
  			<tr>
  				<td>Nim</td>
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  	<?php
  	}else if((isset($page)) and ($page == 'ubah_mahasiswa')) { ?>
  		<legend>Ubah Mahasiswa</legend>
- 		<?php echo form_open('aplikasi/proses_ubah_mahasiswa', 'class="form-horizontal"')?>
+ 		<?php echo form_open('index.php/aplikasi/proses_ubah_mahasiswa', 'class="form-horizontal"')?>
  		<input type="hidden" name="nim" value="<?php echo $mhs->nim ?>">
 
  		<table>
@@ -62,18 +62,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  	}else if ((isset($page)) and ($page == 'daftar_mahasiswa')) { ?>
  		<legend>Daftar Mahasiwa</legend>
  		<table><tr>
- 			<form action="<?php echo base_url('aplikasi/daftar_mahasiswa')?>" class="form-horizontal" method="post" accept-charset="utf-8">
+ 			<form action="<?php echo base_url('index.php/aplikasi/daftar_mahasiswa')?>" class="form-horizontal" method="post" accept-charset="utf-8">
  			<td><input type="text" name="cari" placeholder="Pencarian"/>
  			<button type="submit" name="simpan" class="btn btn-primary"><i class="icon-search icon-white"></i>Cari</button>
  			</td>
  			</form>
- 			<td> <a href="<?php echo base_url('aplikasi/daftar_mahasiswa')?>">
+ 			<td> <a href="<?php echo base_url('index.php/aplikasi/daftar_mahasiswa')?>">
  			<button type="button" name="daftardata" class="btn btn-primary"><i class="icon-ok icon-white"></i>Semu Data</button></a>
  			</td>
- 			<td><a href="<?php echo base_url('EXCEL_data');?>">
+ 			<td><a href="<?php echo base_url('index.php/EXCEL_data');?>">
  			<button type="button" name="daftardata" class="btn btn-primary"><i class="icon-download icon-white"></i>Data Excel</button>
  			</a></td>
- 			<td><a href="<?php echo base_url('PDF_data');?>">
+ 			<td><a href="<?php echo base_url('index.php/PDF_data');?>">
  			<button type="button" name="daftardata" class="btn btn-primary"><i class="icon-download icon-white"></i>Data PDF</button>
  			</a></td>
  		</tr>
@@ -95,15 +95,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  			</tr>
 
  			<?php foreach ($daftar_mhs as $r) {
- 				echo "<tr><td>".$r->nim."</td><td>".$r->nama."</td><td><center><a href='".base_url('aplikasi/ubah_mahasiswa/'.$r->nim)."'><i class='icon-edit'></i>Ubah</a></center>
+ 				echo "<tr><td>".$r->nim."</td><td>".$r->nama."</td><td><center><a href='".base_url('index.php/aplikasi/ubah_mahasiswa/'.$r->nim)."'><i class='icon-edit'></i>Ubah</a></center>
  					</td>
- 					<td><center><a href='".base_url('aplikasi/hapus_mahasiswa/'.$r->nim)."' onclick=\"return confirm('Apakah Anda Ingin Hapus data ini?')\"><i class='icon-remove'></i>Hapus</a></center></td></tr>";
+ 					<td><center><a href='".base_url('index.php/aplikasi/hapus_mahasiswa/'.$r->nim)."' onclick=\"return confirm('Apakah Anda Ingin Hapus data ini?')\"><i class='icon-remove'></i>Hapus</a></center></td></tr>";
  			}
 
  			?>
  		</table>
  		<br/>
- 		<a href="<?php echo base_url('aplikasi/tambah_mahasiswa');?>"><i class="icon-plus-sign"></i>Tambah Mahasiswa</a>
+ 		<a href="<?php echo base_url('index.php/aplikasi/tambah_mahasiswa');?>"><i class="icon-plus-sign"></i>Tambah Mahasiswa</a>
 
  		<?php
  		unset($daftar,$mhs);
@@ -111,12 +111,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  		?>
  		<legend>Home</legend>
  		hai <?php echo $this->session->userdata('nama')?>, selamat datang di aplikasi CRUD CI. <br/><br/>	
- 		<a href="<?php echo base_url('aplikasi/daftar_mahasiswa');?>"><i class="icon-hand-right"></i>Daftar Mahasiswa</a>
+ 		<a href="<?php echo base_url('index.php/aplikasi/daftar_mahasiswa');?>"><i class="icon-hand-right"></i>Daftar Mahasiswa</a>
  		<?php
  		}
  		?>
  		<hr/>
- 		<a href="<?php echo base_url('aplikasi');?>"><i class="icon-home"></i>Home</a> || <a href="<?=base_url('aplikasi/logout');?>" onClick ="return confirm('Apakah anda ingin keluar?')"><i class="icon-off">Keluar</i></a><br/>
+ 		<a href="<?php echo base_url('index.php/aplikasi');?>"><i class="icon-home"></i>Home</a> || <a href="<?=base_url('index.php/aplikasi/logout');?>" onClick ="return confirm('Apakah anda ingin keluar?')"><i class="icon-off">Keluar</i></a><br/>
  		<?php unset($page);
  		?> 		
  	</fieldset>

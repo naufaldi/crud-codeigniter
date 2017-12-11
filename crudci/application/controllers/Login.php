@@ -40,9 +40,9 @@ class Login extends CI_Controller{
 			'userid' => $cek->id_user,'pass'=> $cek->password,'nama'=> $cek->nama,'sukses_login' => true);
 
 			$this->session->set_userdata($array_session);
-			redirect(base_url('aplikasi'));
+			redirect(base_url('index.php/aplikasi'));
 		}else{
-			redirect(base_url('login/login_gagal'));
+			redirect(base_url('index.php/login/login_gagal'));
 		}
 		unset($userid,$password,$cek,$jumlah,$array_session);
 	}

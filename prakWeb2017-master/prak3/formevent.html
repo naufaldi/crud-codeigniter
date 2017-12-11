@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Variabel JS</title>
+	<body>
+	<script type="text/javascript">
+		function calc1(form){
+			a=form.a.value/100;
+			b=a*form.b.value;
+			form.total1.value=b;
+		}
+	</script>
+</head>
+<body>
+	<form name="form">
+		Persentase : <input type="text" name="a" size=5><br/>
+		Angka di Persentase : <input type="text" name="b" size=5><br/>
+		<input type="button" value="Calculate" onclick="calc1(this.form)"><br/>
+		<input type="text" name="total1" size=5 maxlength=40><br/>
+	</form>
+</body>
+</html>

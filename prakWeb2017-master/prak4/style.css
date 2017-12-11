@@ -1,0 +1,43 @@
+.wrap{
+	background: blue;
+	width: 1300px;
+	margin: 5px auto;
+}
+
+/*bagian header*/
+.wrap .header{
+	background: green;
+	padding: 2px 10px;
+}
+
+.clear{
+	clear: both;
+}
+
+.badan{
+	height: 450px;
+}
+
+/*bagian sidebar*/
+.wrap .badan .sidebar{
+	padding-left: 5%;
+	background: orange;
+	float: left;	
+	width: 20%;
+	height: 180%;
+}
+
+/*akhir sidebar*/
+.wrap .badan .content{
+	padding-left: 5%;
+	background: red;
+	float: left;
+	height: 180%;
+	width: 70%;	
+}
+
+.wrap .footer{
+	width: 98,5%;
+	background: pink;
+	padding: 20px;
+}

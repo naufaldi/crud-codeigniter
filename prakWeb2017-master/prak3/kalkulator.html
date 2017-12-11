@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Kalkulator</title>		
+</head>	
+<body>
+	<script type="text/javascript">
+		function hitung(op){	
+			var a = document.getElementById("angka1").value;
+			var b = document.getElementById("angka2").value;
+
+			if (op == "+"){
+				hasil = parseInt(a) + parseInt(b);
+				}else if (op == "-"){
+					hasil = parseInt(a) - parseInt(b);
+				} else if (op == "*"){
+					hasil = parseInt(a) * parseInt(b);
+				} else if (op == "/"){
+					hasil = parseInt(a) / parseInt(b);
+				}			
+
+				document.getElementById("hasil").value = hasil;
+			}
+
+		</script>
+		<h1>Kalkulator</h1>
+		A = <input type="text" id="angka1"> <br/>
+		B = <input type="text" id="angka2"> <br/><br/>
+		<input type="button" value="Tambah" id="operator" value="+" onClick="hitung('+')"> 
+		<input type="button" value="Kurang" id="operator" value="-" onClick="hitung('-')"> 
+		<input type="button" value="Kali" id="operator" value="*" onClick="hitung('*')">
+		<input type="button" value="Bagi" id="operator" value="/" onClick="hitung('/')"><br/><br/> 
+		Hasil = <input type="text" id="hasil" readonly> <br/>
+	</body>
+	</html>

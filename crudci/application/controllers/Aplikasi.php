@@ -9,7 +9,7 @@ class Aplikasi extends CI_Controller{
 		if ($this->session->userdata('userid') and $this->session->userdata('pass')) {
 			$this->load->model('m_aplikasi');
 		}else{
-			redirect(base_url('login'));
+			redirect(base_url('index.php/login'));
 		}
 	}
 
@@ -29,7 +29,7 @@ class Aplikasi extends CI_Controller{
 
 		$this->m_aplikasi->tambah_mahasiswa($data);
 
-		redirect(base_url('Aplikasi/daftar_mahasiswa'));
+		redirect(base_url('index.php/Aplikasi/daftar_mahasiswa'));
 		unset($data);
 	}
 
@@ -67,13 +67,13 @@ class Aplikasi extends CI_Controller{
 
 		$this->m_aplikasi->ubah_mahasiswa($nim,$data);
 
-		redirect(base_url('Aplikasi/daftar_mahasiswa'));
+		redirect(base_url('index.php/Aplikasi/daftar_mahasiswa'));
 		unset($nim,$data);	
 	}
 
 	public function hapus_mahasiswa($nim){
 		$this->m_aplikasi->hapus_mahasiswa($nim);
-		redirect(base_url('Aplikasi/daftar_mahasiswa'));
+		redirect(base_url('index.php/Aplikasi/daftar_mahasiswa'));
 		
 	}
 
@@ -86,7 +86,7 @@ class Aplikasi extends CI_Controller{
 
 		$this->session->sess_destroy();
 
-		redirect(base_url('Login'));
+		redirect(base_url('index.php/Login'));
 	}
 }
 
